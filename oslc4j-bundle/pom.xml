@@ -35,6 +35,17 @@
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
+	<dependency>
+        <groupId>org.eclipse.lyo</groupId>
+        <artifactId>lyo-validation</artifactId>
+        <version>2.4.0-SNAPSHOT</version>
+        <exclusions>
+        	<exclusion>
+        		<groupId>xml-apis</groupId>
+        		<artifactId>xml-apis</artifactId>
+        	</exclusion>
+        </exclusions>
+	</dependency>
 
     <dependency>
       <groupId>org.eclipse.lyo.oslc4j.core</groupId>
@@ -45,7 +56,30 @@
       <groupId>org.eclipse.lyo.oslc4j.core</groupId>
       <artifactId>oslc4j-jena-provider</artifactId>
       <version>2.3.0-SNAPSHOT</version>
+      <exclusions>
+      	<exclusion>
+      		<groupId>xml-apis</groupId>
+      		<artifactId>xml-apis</artifactId>
+      	</exclusion>
+      </exclusions>
     </dependency>
+    
+    <dependency>
+        <groupId>org.eclipse.lyo.store</groupId>
+        <artifactId>store-core</artifactId>
+        <version>2.4.0-SNAPSHOT</version>
+        <exclusions>
+        	<exclusion>
+        		<groupId>xml-apis</groupId>
+        		<artifactId>xml-apis</artifactId>
+        	</exclusion>
+        	<exclusion>
+        		<groupId>org.apache.jena</groupId>
+        		<artifactId>jena-tdb</artifactId>
+        	</exclusion>
+        </exclusions>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -62,41 +96,60 @@
           <instructions>
             <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
-            <_exportcontents>
-              org.apache.jena.rdf.model,
-              org.apache.jena.shared,
-              org.apache.jena.util,
-              org.apache.jena.vocabulary,
-              org.apache.commons.codec.binary,
-              org.apache.http;version="4.1.0",
-              org.apache.http.client;version="4.1.0",
-              org.apache.http.client.methods;version="4.1.0",
-              org.apache.http.conn;version="4.1.0",
-              org.apache.http.conn.scheme;version="4.1.0",
-              org.apache.http.conn.ssl;version="4.1.0",
-              org.apache.http.entity;version="4.1.0",
-              org.apache.http.impl.client;version="4.1.0",
-              org.apache.http.message;version="4.1.0",
-              org.apache.http.util;version="4.1.0",
-              org.apache.wink.client,
-              org.apache.wink.json4j;version="1.4.0",
-              org.eclipse.lyo.client.exception,
-              org.eclipse.lyo.client.oslc,
-              org.eclipse.lyo.client.oslc.jazz,
-              org.eclipse.lyo.client.oslc.resources,
-              org.eclipse.lyo.core.query,
-              org.eclipse.lyo.core.query.impl,
-              org.eclipse.lyo.core.trs,
-              org.eclipse.lyo.core.utils.marshallers,
-              org.eclipse.lyo.oslc4j.application,
-              org.eclipse.lyo.oslc4j.client,
-              org.eclipse.lyo.oslc4j.core,
-              org.eclipse.lyo.oslc4j.core.annotation,
-              org.eclipse.lyo.oslc4j.core.exception,
-              org.eclipse.lyo.oslc4j.core.model,
-              org.eclipse.lyo.oslc4j.provider.jena,
-              org.eclipse.lyo.oslc4j.provider.json4j,
-              org.eclipse.lyo.oslc4j.utils
+		            <_exportcontents>
+		    org.eclipse.lyo.validation.shacl,
+			org.eclipse.lyo.validation.shacl.annotations,
+			org.eclipse.lyo.validation,
+			org.eclipse.lyo.validation.constants,
+		
+			org.apache.jena.rdf.model,
+			org.apache.jena.shared,
+			org.apache.jena.util,
+			org.apache.jena.graph,
+			org.apache.jena.vocabulary,
+			org.apache.jena.query,
+			org.apache.jena.atlas.web.auth,	
+			org.apache.jena.riot,
+			org.apache.jena.riot.Lang,
+			
+			org.apache.commons.codec.binary,
+			org.apache.jena.update,
+			org.apache.http;version="4.1.0",
+			org.apache.http.client;version="4.1.0",
+			org.apache.http.client.methods;version="4.1.0",
+			org.apache.http.conn;version="4.1.0",
+			org.apache.http.conn.scheme;version="4.1.0",
+			org.apache.http.conn.ssl;version="4.1.0",
+			org.apache.http.entity;version="4.1.0",
+			org.apache.http.impl.client;version="4.1.0",
+			org.apache.http.message;version="4.1.0",
+			org.apache.http.util;version="4.1.0",
+			
+			org.apache.wink.client,
+			org.apache.wink.json4j;version="1.4.0",
+			
+			org.eclipse.lyo.client.exception,
+			org.eclipse.lyo.client.oslc,
+			org.eclipse.lyo.client.oslc.jazz,
+			org.eclipse.lyo.client.oslc.resources,
+			org.eclipse.lyo.core.query,
+			org.eclipse.lyo.core.query.impl,
+			org.eclipse.lyo.core.trs,
+			org.eclipse.lyo.core.utils.marshallers,
+			org.eclipse.lyo.oslc4j.application,
+			org.eclipse.lyo.oslc4j.client,
+			org.eclipse.lyo.oslc4j.core,
+			org.eclipse.lyo.oslc4j.core.annotation,
+			org.eclipse.lyo.oslc4j.core.exception,
+			org.eclipse.lyo.oslc4j.core.model,
+			org.eclipse.lyo.oslc4j.provider.jena,
+			org.eclipse.lyo.oslc4j.provider.json4j,
+			org.eclipse.lyo.oslc4j.utils,
+			
+			org.eclipse.lyo.store,
+			org.eclipse.lyo.store.internals,
+			org.eclipse.lyo.store.internals.query
+           
             </_exportcontents>
             <Import-Package>
               javax.servlet;version="2.5.0",
