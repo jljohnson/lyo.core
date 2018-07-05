@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.eclipse.lyo.oslc4j.core</groupId>
     <artifactId>oslc4j-core-build</artifactId>
-    <version>2.3.0-SNAPSHOT</version>
+    <version>2.4.0-SNAPSHOT</version>
     <relativePath>../org.eclipse.lyo.oslc4j.build/pom.xml</relativePath>
   </parent>
 
@@ -50,12 +50,17 @@
     <dependency>
       <groupId>org.eclipse.lyo.oslc4j.core</groupId>
       <artifactId>oslc4j-core</artifactId>
-      <version>2.3.0-SNAPSHOT</version>
+      <version>2.4.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.lyo</groupId>
+      <artifactId>shacl</artifactId>
+      <version>2.4.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.lyo.oslc4j.core</groupId>
       <artifactId>oslc4j-jena-provider</artifactId>
-      <version>2.3.0-SNAPSHOT</version>
+      <version>2.4.0-SNAPSHOT</version>
       <exclusions>
       	<exclusion>
       		<groupId>xml-apis</groupId>
@@ -97,10 +102,8 @@
             <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
 		            <_exportcontents>
-		    org.eclipse.lyo.validation.shacl,
-			org.eclipse.lyo.validation.shacl.annotations,
-			org.eclipse.lyo.validation,
-			org.eclipse.lyo.validation.constants,
+		    org.eclipse.lyo.shacl,
+			org.eclipse.lyo.shacl.annotations,
 		
 			org.apache.jena.rdf.model,
 			org.apache.jena.shared,
